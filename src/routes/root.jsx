@@ -11,7 +11,7 @@ export default function Root({ children }) {
   return (
     <>
       <header className="h-16 shadow-md z-50 relative">
-        <div className=" lg:w-[1200px] mx-auto px-5 flex flex-row items-center justify-between ">
+        <div className="w-full lg:w-[1200px] mx-auto px-4 flex flex-row items-center justify-between ">
           <img className="h-16  " src="/kl2.png" alt="Logo" />
           <nav>
             <ul className="hidden md:flex flex-row justify-between items-center gap-4">
@@ -125,7 +125,7 @@ export default function Root({ children }) {
       </header>
       {children}
       <footer>
-        <div className=" lg:w-[1200px] mx-auto grid  md:grid-cols-2 justify-center items-center my-9 px-10 py-5 border-t-2 border-gray-200">
+        <div className="w-full lg:w-[1200px] mx-auto grid  md:grid-cols-2 justify-center items-center my-9 px-10 py-5 border-t-2 border-gray-200">
           <div className="flex flex-col items-center justify-center  ml-5">
             <img className="w-[200px] " src="/baground.png" alt="" />
             <div className="flex flex-row mt-2 ">
