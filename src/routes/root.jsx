@@ -9,140 +9,139 @@ export default function Root({ children }) {
   };
 
   return (
-    <>
-      <header className="h-16 shadow-md z-50 relative">
-        <div className="w-full lg:w-[1200px] mx-auto px-4 flex flex-row items-center justify-between ">
-          <img className="h-16  " src="/kl2.png" alt="Logo" />
-          <nav>
-            <ul className="hidden md:flex flex-row justify-between items-center gap-4">
-              <li>
-                <a
-                  className="hover:bg-slate-200 my-[5px] py-5 px-[10px] rounded-lg"
-                  href="#"
-                >
-                  Home
-                </a>
-              </li>
-              <li>
-                <a
-                  className="hover:bg-slate-200 my-[5px] py-5 px-[10px] rounded-lg"
-                  href="#about"
-                >
-                  About
-                </a>
-              </li>
-              <li>
-                <a
-                  className="hover:bg-slate-200 my-[5px] py-5 px-[10px] rounded-lg"
-                  href="#services"
-                >
-                  Services
-                </a>
-              </li>
-              <li>
-                <a
-                  className="hover:bg-slate-200 my-[5px] py-5 px-[10px] rounded-lg"
-                  href="#projects"
-                >
-                  Projects
-                </a>
-              </li>
-              <li>
-                <a
-                  className="hover:bg-slate-200 my-[5px] py-5 px-[10px] rounded-lg"
-                  href="#contact"
-                >
-                  Contact
-                </a>
-              </li>
-            </ul>{" "}
-            {/* Mobile Menu Button */}
-            <div className="md:hidden">
-              <button
-                className="text-gray-500 focus:outline-none focus:text-gray-700"
-                onClick={toggleMenu}
+    <div className="bg-[#FBF8EF]">
+      <header className="h-16 shadow-md z-50 ">
+        <div className="max-w-[1200px] mx-auto px-4 flex items-center justify-between h-full">
+          {/* Logo */}
+          <div className="flex-shrink-0">
+            <img src="/kl2.png" alt="Logo" className="h-12 w-auto" />
+          </div>
+
+          {/* Navigation Links */}
+          <nav className="hidden md:flex space-x-8">
+            <a
+              href="#"
+              className="text-gray-700 hover:text-orange-600 font-medium transition"
+            >
+              Home
+            </a>
+            <a
+              href="#about"
+              className="text-gray-700 hover:text-orange-600 font-medium transition"
+            >
+              About
+            </a>
+            <a
+              href="#service"
+              className="text-gray-700 hover:text-orange-600 font-medium transition"
+            >
+              Services
+            </a>
+            <a
+              href="#projects"
+              className="text-gray-700 hover:text-orange-600 font-medium transition"
+            >
+              Projects
+            </a>
+            <a
+              href="#contact"
+              className="text-gray-700 hover:text-orange-600 font-medium transition"
+            >
+              Contact
+            </a>
+          </nav>
+
+          {/* Mobile Menu Button */}
+          <div className="md:hidden">
+            <button
+              className="text-gray-700 focus:outline-none"
+              onClick={toggleMenu}
+            >
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
               >
-                {/* Icon for Menu Button */}
-                <svg
-                  className="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M4 6h16M4 12h16M4 18h16"
-                  ></path>
-                </svg>
-              </button>
-            </div>
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Navigation Menu */}
+        <div
+          className={`md:hidden ${
+            isOpen ? "block" : "hidden"
+          } bg-white shadow-md absolute top-16 left-0 w-full z-50`}
+        >
+          <nav className="flex flex-col items-center space-y-4 py-4">
+            <a
+              href="#"
+              className="text-gray-700 hover:text-orange-600 font-medium transition"
+            >
+              Home
+            </a>
+            <a
+              href="#about"
+              className="text-gray-700 hover:text-orange-600 font-medium transition"
+            >
+              About
+            </a>
+            <a
+              href="#service"
+              className="text-gray-700 hover:text-orange-600 font-medium transition"
+            >
+              Services
+            </a>
+            <a
+              href="#projects"
+              className="text-gray-700 hover:text-orange-600 font-medium transition"
+            >
+              Projects
+            </a>
+            <a
+              href="#contact"
+              className="text-gray-700 hover:text-orange-600 font-medium transition"
+            >
+              Contact
+            </a>
           </nav>
         </div>
-        <div className={`md:hidden ${isOpen ? "block" : "hidden"}`}>
-          <ul className="flex  flex-col items-center p-4 space-y-2 gap-2 bg-slate-100">
-            <li>
-              <a className="hover:bg-slate-200  py-4 px-20 rounded-xl" href="#">
-                Home
-              </a>
-            </li>
-            <li>
-              <a
-                className="hover:bg-slate-200  py-4 px-20 rounded-xl"
-                href="#about"
-              >
-                About
-              </a>
-            </li>
-            <li>
-              <a
-                className="hover:bg-slate-200  py-4 px-20 rounded-xl"
-                href="#services"
-              >
-                Services
-              </a>
-            </li>
-            <li>
-              <a
-                className="hover:bg-slate-200  py-4 px-20 rounded-xl"
-                href="#projects"
-              >
-                Projects
-              </a>
-            </li>
-            <li>
-              <a
-                className="hover:bg-slate-200  py-4 px-20 rounded-xl"
-                href="#contact"
-              >
-                Contact
-              </a>
-            </li>
-          </ul>
-        </div>
       </header>
+
       {children}
       <footer>
         <div className="w-full lg:w-[1200px] mx-auto grid  md:grid-cols-2 justify-center items-center my-9 px-10 py-5 border-t-2 border-gray-200">
-          <div className="flex flex-col items-center justify-center  ml-5">
-            <img className="w-[200px] " src="/baground.png" alt="" />
+          <div className="flex flex-col items-center justify-center  lg:ml-5">
+            <img className="w-[200px] " src="/kl2.png" alt="" />
             <div className="flex flex-row mt-2 ">
               <img src="/map.png " alt="" />
               <span>Kurumathur,Taliparamba,Kannur,Kerala </span>
             </div>
-            <h6 className="ml-6">Follow Us On</h6>
-            <div className=" flex flex-row mt-2 ml-6  gap-2">
-              <img src="/instagram-logo-24.png" alt="" />
-              <img src="/facebook.png" alt="" />
-              <img src="/twitter.png" alt="" />
+            <h6 className="lg:ml-6">Follow Us On</h6>
+            <div className=" flex flex-row mt-2 lg:ml-6  gap-2">
+              <a
+                href="https://www.instagram.com/hyphen_builders"
+                target="_blank"
+              >
+                <img src="/instagram-logo-24.png" alt="" />
+              </a>
+              <a href="https://www.facebook.com/hyphenbuilders" target="_blank">
+                <img src="/facebook.png" alt="" />
+              </a>
+              {/* <img src="/twitter.png" alt="" /> */}
             </div>
           </div>
-          <div className="flex flex-col items-center justify-center">
+          <div className="flex flex-col items-center justify-center mt-4">
             <h5 className="font-bold text-lg ">Services </h5>
 
-            <p className="mt-4">
+            <p className="mt-4 sm:text-center">
               Architectural Design | Construction | Permit acquisition and
               Regulatory compliance | Custom Home Building | House Renovation |
               Interior Desing | Modular Kitchen | Land clearing and grading |
@@ -151,6 +150,6 @@ export default function Root({ children }) {
           </div>
         </div>
       </footer>
-    </>
+    </div>
   );
 }

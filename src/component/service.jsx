@@ -17,13 +17,13 @@ export default function Service() {
   };
 
   return (
-    <div id="services" className="mt-11">
+    <section id="service" className="mt-11">
       <div className="text-center">
-        <h1 className=" text-4xl font-bold font-serif">My Services</h1>
+        <h1 className=" text-4xl font-bold ">Our Services</h1>
       </div>
       <div className="flex items-center justify-center my-8">
-        <p className="text-lg font-mono">
-          At HYPHEN BUILDERS, we offer a full range of construction services
+        <p className="text-lg text-center">
+          We HYPHEN BUILDERS, we offer a full range of construction services
           tailored to meet your needs. From custom planning and designing to
           constructing new homes and renovating existing spaces, we handle every
           aspect of building with precision and care. Our experienced team
@@ -36,67 +36,72 @@ export default function Service() {
       <motion.div variants={gridVarients} initial="hidden" animate="show">
         <div className=" grid md:grid-cols-2  lg:grid-cols-3 gap-6 my-16 ">
           <motion.div
-            className="flex flex-col items-center border-solid border-inherit shadow-sm rounded-md"
+            className="flex flex-col items-center border-solid border-inherit shadow-lg rounded-md bg-[#F8F4E1] p-1"
             variants={{ gridSquare }}
           >
             <img
-              className="object-cover w-full h-[400px]"
-              src="/plan.jpg"
+              className="object-cover  h-[300px]"
+              src="/baseplan.jpeg"
               alt=""
+              loading="lazy"
             />
 
-            <p className="my-6 text-lg font-mono">Plan Works</p>
+            <p className="my-6 text-lg font-semibold">Architecturing</p>
           </motion.div>
           <motion.div
-            className="flex flex-col items-center border-solid border-inherit shadow-sm rounded-md"
+            className="flex flex-col items-center border-solid border-inherit shadow-lg rounded-md bg-[#F8F4E1] p-1"
             variants={{ gridSquare }}
           >
             <img
-              className="object-cover w-full h-[400px]"
-              src="/construction.jpg"
+              className="object-cover  h-[300px]"
+              src="/keralahouse.jpeg"
               alt=""
+              loading="lazy"
             />
 
-            <p className="my-6 text-lg font-mono">Home Construction</p>
+            <p className="my-6 text-lg font-semibold">House Construction</p>
           </motion.div>
           <motion.div
-            className="flex flex-col items-center border-solid border-inherit shadow-sm rounded-md"
+            className="flex flex-col items-center border-solid border-inherit shadow-lg rounded-md bg-[#F8F4E1] p-1"
             variants={{ gridSquare }}
           >
             <img
-              className="object-cover w-full h-[400px]"
-              src="/reconstruction.jpg"
+              className="object-cover  h-[300px]"
+              src="/Modern home.jpeg"
               alt=""
+              loading="lazy"
             />
 
-            <p className="my-6 text-lg font-mono">Home Renovation</p>
+            <p className="my-6 text-lg font-semibold">House Renovation</p>
           </motion.div>
           <motion.div
-            className="flex flex-col items-center border-solid border-inherit shadow-sm rounded-md"
+            className="flex flex-col items-center border-solid border-inherit shadow-sm rounded-md bg-[#F8F4E1] p-1"
             variants={{ gridSquare }}
           >
             <img
-              className="object-cover w-full h-[400px]"
-              src="/kitchen.jpg"
+              className="object-cover  h-[300px]"
+              src="/modularkitchen.jpeg"
               alt=""
+              loading="lazy"
             />
 
-            <p className="my-6 text-lg font-mono">Kitchen ReWorks</p>
+            <p className="my-6 text-lg font-semibold">Kitchen ReWorks</p>
           </motion.div>
           <motion.div
-            className="flex flex-col items-center border-solid border-inherit shadow-sm rounded-md"
+            className="flex flex-col items-center border-solid border-inherit shadow-sm rounded-md bg-[#F8F4E1] p-1"
             variants={{ gridSquare }}
           >
             <img
-              className="object-cover w-full h-[400px]"
-              src="/interior.jpg"
+              className="object-cover  h-[300px]"
+              src="/Interior Designe.jpeg"
               alt=""
+              loading="lazy"
             />
 
-            <p className="my-6 text-lg font-mono">Interior Construction</p>
+            <p className="my-6 text-lg font-semibold">Interior Construction</p>
           </motion.div>
         </div>
       </motion.div>
-    </div>
+    </section>
   );
 }

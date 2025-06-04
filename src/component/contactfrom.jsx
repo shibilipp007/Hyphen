@@ -1,57 +1,109 @@
 import { useForm } from "react-hook-form";
+import Input from "./input";
+import { useState } from "react";
+import CustomAlert from "./alertbox";
 
 export default function Contactfrom() {
   const {
     register,
     handleSubmit,
-
+    reset,
     formState: { errors },
   } = useForm();
 
+  const [alertMessage, setAlertMessage] = useState(null);
+
+  const onSubmit = async (data) => {
+    try {
+      const response = await fetch("/api/form-response", data);
+      if (response.ok) {
+        setAlertMessage("Deatils send Succesfully!");
+        reset();
+      } else {
+        setAlertMessage("Failed to send");
+      }
+    } catch (error) {
+      setAlertMessage("An error occuerd.Please try again later");
+      console.error(error);
+    }
+  };
+
   return (
     <>
-      <div className="items-center justify-center flex ">
+      <div className="flex items-center justify-center px-4">
         <form
-          className="my-8  border rounded shadow py-9 w-full flex items-center justify-center"
-          onSubmit={handleSubmit()}
+          className="my-8 w-full max-w-md border rounded shadow py-5 px-4 sm:px-6"
+          onSubmit={handleSubmit(onSubmit)}
         >
-          <div className="items-center ml-5">
-            <label className="block mb-1 text-md font-medium" htmlFor="name">
-              Name
-            </label>
-            <input
-              className="block w-[420px] h-9 border rounded border-gray-400 p-2 mt-3"
-              placeholder="Your Name"
-              {...register("name", { required: true })}
+          <div className="flex flex-col">
+            <Input
+              label={"Name"}
+              id={"name"}
+              type="text"
+              placeholder=" "
+              {...register("name", { required: "name is required" })}
             />
-            {errors.name && <span>{errors.name.message}</span>}
-            <label className="block text-md font-medium mt-8" htmlFor="email">
-              Email
-            </label>
-            <input
-              className="block w-[420px] h-9 border rounded border-gray-400 p-2 mt-3"
-              placeholder="Your Email"
+            {errors.name && (
+              <span className="text-red-600 text-sm mt-1">
+                {errors.name.message}
+              </span>
+            )}
+
+            <Input
+              label={"Email"}
+              id={"email"}
+              type="email"
+              placeholder=" "
               {...register("email", {
                 required: "Email is required",
                 pattern: {
-                  value: /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/,
-                  message: "Enter valid Email",
+                  value: /^[a-zA-Z0-9]+@+[a-zA-Z0-9]+.+[A-z]/,
+                  message: "enter a valid email",
                 },
               })}
             />
+
             {errors.email && (
-              <span className="text-red-600 text-sm">
+              <span className="text-red-600 text-sm mt-1">
                 {errors.email.message}
               </span>
             )}
+
+            <Input
+              label={"PhoneNumber"}
+              id={"phone"}
+              type="tel"
+              placeholder=" "
+              {...register("phone", {
+                required: "number is required",
+
+                minLength: {
+                  value: 10,
+                  message: "phone number is at least 10 number required",
+                },
+              })}
+            />
+            {errors.phone && (
+              <span className="text-red-600 text-sm mt-1">
+                {errors.phone.message}
+              </span>
+            )}
+
             <button
-              className="block mt-3 h-9 w-[60px] text-white bg-yellow-600 rounded items-center justify-center"
+              className="mt-5 h-10 w-full text-white bg-yellow-600 rounded"
               type="submit"
             >
               Send
             </button>
           </div>
         </form>
+
+        {alertMessage && (
+          <CustomAlert
+            message={alertMessage}
+            onClose={() => setAlertMessage(null)}
+          />
+        )}
       </div>
     </>
   );

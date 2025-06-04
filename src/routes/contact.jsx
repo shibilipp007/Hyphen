@@ -1,35 +1,59 @@
 import "boxicons/css/boxicons.min.css";
 import Contactfrom from "../component/contactfrom";
 
+const handleEmailClick = () => {
+  const email = "hyphensupport@gmail.com";
+  const subject = encodeURIComponent("Hi here need your attention");
+  const body = encodeURIComponent("Hi,\n\nI wanted to reach out");
+  const mailToLink = `mailto:${email}?subject=${subject}&body=${body}`;
+
+  window.location.href = mailToLink;
+};
+
+const handlePhone = () => {
+  const number = "9747723251";
+
+  window.location.href = `tel:${number}`;
+};
+
 export default function Contact() {
   return (
-    <div id="contact">
-      <div className="text-center mt-[200px] ">
-        <h1 className="text-4xl font-bold font-serif">Reach Us</h1>
+    <section id="contact">
+      <div
+        className="text-center mt-[200px]mx-auto
+       "
+      >
+        <h1 className="text-4xl font-bold ">Reach Us</h1>
       </div>
       <div className="grid  md:grid-cols-4 mt-11 gap-2">
         <div className="col-span-1">{/* empty space */}</div>
-        <div className="col-span-1 text-center border shadow-sm rounded-md p-4 ">
+        <button
+          className="col-span-1 text-center border shadow-sm rounded-md p-4 bg-[#F8F4E1] "
+          onClick={handlePhone}
+        >
           <i className="bx bx-phone-call text-6xl p-4 "></i>
           <div className="flex flex-col text-lg">
             <h3>Call us</h3>
-            <span>+91 987456123</span>
+            <span>+91 9747723251</span>
           </div>
-        </div>
-        <div className="col-span-1 text-center p-4 border shadow-sm rounded-md">
+        </button>
+        <button
+          className="col-span-1 text-center p-4 border shadow-sm rounded-md bg-[#F8F4E1]"
+          onClick={handleEmailClick}
+        >
           <i className="bx bx-envelope text-6xl p-4"></i>
           <div className="flex flex-col text-lg">
             <h3>Mail us</h3>
             <span>hyphensupport@gmail.com</span>
           </div>
-        </div>
+        </button>
       </div>
 
-      <div className="flex-row grid lg:grid-cols-2 mt-20 gap-4">
+      <div className="flex-row grid lg:grid-cols-2 sm:w-mx-auto mt-20 gap-4">
         <Contactfrom />
         <div>
-          <div className="flex text-center items-center justify-center">
-            <h1 className="text-2xl font-bold font-serif ">Our Office</h1>
+          <div className="flex text-center items-center justify-center mt-3">
+            <h1 className="text-2xl font-bold">Our Office</h1>
           </div>
           <div className="overflow-hidden pb-[48.9%] relative h-0 mt-5">
             <iframe
@@ -45,6 +69,6 @@ export default function Contact() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
