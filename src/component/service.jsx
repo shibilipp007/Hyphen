@@ -6,7 +6,7 @@ import "react-multi-carousel/lib/styles.css";
 const services = [
   {
     url: "/baseplan.jpeg",
-    title: "Architecturing",
+    title: "Architecture",
   },
   {
     url: "/keralahouse.jpeg",
@@ -14,15 +14,15 @@ const services = [
   },
   {
     url: "/Modern home.jpeg",
-    title: "House Renovation",
+    title: "Home Renovation",
   },
   {
     url: "/modularkitchen.jpeg",
-    title: "Kitchen ReWorks",
+    title: "Modular Kitchen",
   },
   {
     url: "/Interior Designe.jpeg",
-    title: "Interior Construction",
+    title: "Interior Design",
   },
 ];
 
