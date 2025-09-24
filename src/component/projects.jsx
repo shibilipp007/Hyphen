@@ -1,4 +1,16 @@
 import { motion } from "framer-motion";
+import Masonry from "react-masonry-css";
+
+const gallry = [
+  { imgUrl: "/project-1.jpg" },
+  { imgUrl: "/project-2.jpg" },
+  { imgUrl: "/project-3.jpg" },
+  { imgUrl: "/project-4.jpg" },
+  { imgUrl: "/project-5.jpg" },
+  { imgUrl: "/project-6.jpg" },
+  { imgUrl: "/project-7.jpg" },
+  { imgUrl: "/project-8.jpg" },
+];
 
 export default function Projects() {
   const gridVarients = {
@@ -12,85 +24,45 @@ export default function Projects() {
   };
 
   const gridSquare = {
-    hidden: { opacity: 0 },
-    show: { opacity: 1 },
+    hidden: { opacity: 0, y: 50 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 1.5,
+        ease: "easeOut",
+      },
+    },
   };
 
   return (
     <section id="projects" className="mt-16">
-      <h1 className="text-center text-4xl font-bold ">Our Contributions</h1>
-      <div></div>
+      <h1 className="text-center text-4xl font-bold">Our Contributions</h1>
+
       <motion.div
-        className="mt-16 mb-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"
+        className="mt-16 mb-8"
         variants={gridVarients}
         initial="hidden"
         animate="show"
       >
-        <motion.div variants={{ gridSquare }}>
-          <img
-            className="object-cover w-full h-full rounded-md"
-            src="/project-1.jpg"
-            alt=""
-            loading="lazy"
-          />
-        </motion.div>
-        <motion.div variants={{ gridSquare }} className="flex items-center">
-          {" "}
-          <img
-            className="object-cover w-full h-[80%] justify-center rounded-md"
-            src="/project-2.jpg"
-            alt=""
-            loading="lazy"
-          />
-        </motion.div>
-        <motion.div>
-          <img
-            className="object-cover w-full h-full rounded-md"
-            src="/project-3.jpg"
-            alt=""
-            loading="lazy"
-          />
-        </motion.div>
-        <motion.div className="flex items-center">
-          <img
-            className="object-cover w-full h-[70%] rounded-md"
-            src="/project-4.jpg"
-            alt=""
-            loading="lazy"
-          />
-        </motion.div>
-        <motion.div className="flex items-end">
-          <img
-            className="object-cover w-full h-[85%] items-baseline rounded-md"
-            src="/project-5.jpg"
-            alt=""
-            loading="lazy"
-          />
-        </motion.div>
-        <motion.div>
-          <img
-            className="object-cover w-full h-full rounded-md"
-            src="/project-6.jpg"
-            alt=""
-            loading="lazy"
-          />
-        </motion.div>
-        <motion.div className="flex items-start">
-          <img
-            className="object-cover w-full h-[60%] rounded-md"
-            src="/project-7.jpg"
-            alt=""
-            loading="lazy"
-          />{" "}
-        </motion.div>
-        <motion.div>
-          <img
-            className="object-cover w-full h-full rounded-md"
-            src="/project-8.jpg"
-            alt=""
-            loading="lazy"
-          />
-        </motion.div>
+        <Masonry
+          className="flex gap-4"
+          breakpointCols={{
+            default: 4,
+            640: 2,
+          }}
+        >
+          {gallry.map(({ imgUrl }, i) => (
+            <motion.div key={i} variants={gridSquare} className="mb-4">
+              <img
+                className="object-cover w-full h-full rounded-md shadow-md hover:scale-[1.02] transition-transform duration-300"
+                src={imgUrl}
+                alt={`Project ${i + 1}`}
+                loading="lazy"
+              />
+            </motion.div>
+          ))}
+        </Masonry>
       </motion.div>
     </section>
   );

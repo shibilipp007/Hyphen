@@ -1,4 +1,30 @@
 import { motion } from "framer-motion";
+import useMatchViewport from "./useMatchMedia";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
+
+const services = [
+  {
+    url: "/baseplan.jpeg",
+    title: "Architecturing",
+  },
+  {
+    url: "/keralahouse.jpeg",
+    title: "House Construction",
+  },
+  {
+    url: "/Modern home.jpeg",
+    title: "House Renovation",
+  },
+  {
+    url: "/modularkitchen.jpeg",
+    title: "Kitchen ReWorks",
+  },
+  {
+    url: "/Interior Designe.jpeg",
+    title: "Interior Construction",
+  },
+];
 
 export default function Service() {
   const gridVarients = {
@@ -16,6 +42,8 @@ export default function Service() {
     show: { opacity: 1 },
   };
 
+  const isMobile = useMatchViewport("(max-width: 640px)");
+
   return (
     <section id="service" className="mt-11">
       <div className="text-center">
@@ -28,80 +56,55 @@ export default function Service() {
           constructing new homes and renovating existing spaces, we handle every
           aspect of building with precision and care. Our experienced team
           specializes in all types of construction projects, ensuring quality
-          workmanship and attention to detail. Whether you're building from
-          scratch or transforming your current home, we're here to bring your
-          vision to life with our skilled and dedicated workforce.
+          workmanship and attention to detail. Whether you&apos;re building from
+          scratch or transforming your current home, we&apos;re here to bring
+          your vision to life with our skilled and dedicated workforce.
         </p>
       </div>
-      <motion.div variants={gridVarients} initial="hidden" animate="show">
-        <div className=" grid md:grid-cols-2  lg:grid-cols-3 gap-6 my-16 ">
-          <motion.div
-            className="flex flex-col items-center border-solid border-inherit shadow-lg rounded-md bg-[#F8F4E1] p-1"
-            variants={{ gridSquare }}
-          >
-            <img
-              className="object-cover  h-[300px]"
-              src="/baseplan.jpeg"
-              alt=""
-              loading="lazy"
-            />
-
-            <p className="my-6 text-lg font-semibold">Architecturing</p>
-          </motion.div>
-          <motion.div
-            className="flex flex-col items-center border-solid border-inherit shadow-lg rounded-md bg-[#F8F4E1] p-1"
-            variants={{ gridSquare }}
-          >
-            <img
-              className="object-cover  h-[300px]"
-              src="/keralahouse.jpeg"
-              alt=""
-              loading="lazy"
-            />
-
-            <p className="my-6 text-lg font-semibold">House Construction</p>
-          </motion.div>
-          <motion.div
-            className="flex flex-col items-center border-solid border-inherit shadow-lg rounded-md bg-[#F8F4E1] p-1"
-            variants={{ gridSquare }}
-          >
-            <img
-              className="object-cover  h-[300px]"
-              src="/Modern home.jpeg"
-              alt=""
-              loading="lazy"
-            />
-
-            <p className="my-6 text-lg font-semibold">House Renovation</p>
-          </motion.div>
-          <motion.div
-            className="flex flex-col items-center border-solid border-inherit shadow-sm rounded-md bg-[#F8F4E1] p-1"
-            variants={{ gridSquare }}
-          >
-            <img
-              className="object-cover  h-[300px]"
-              src="/modularkitchen.jpeg"
-              alt=""
-              loading="lazy"
-            />
-
-            <p className="my-6 text-lg font-semibold">Kitchen ReWorks</p>
-          </motion.div>
-          <motion.div
-            className="flex flex-col items-center border-solid border-inherit shadow-sm rounded-md bg-[#F8F4E1] p-1"
-            variants={{ gridSquare }}
-          >
-            <img
-              className="object-cover  h-[300px]"
-              src="/Interior Designe.jpeg"
-              alt=""
-              loading="lazy"
-            />
-
-            <p className="my-6 text-lg font-semibold">Interior Construction</p>
-          </motion.div>
-        </div>
-      </motion.div>
+      {isMobile ? (
+        <Carousel
+          responsive={{
+            mobile: { breakpoint: { min: 0, max: 640 }, items: 1 },
+          }}
+          className="mb-6"
+        >
+          {services.map((service, idx) => (
+            <motion.div
+              key={idx}
+              className="flex flex-col items-center border-solid border-inherit shadow-lg rounded-md bg-[#F8F4E1] p-1"
+              variants={gridSquare}
+            >
+              <img
+                className="object-cover h-[300px]"
+                src={service.url}
+                alt={service.title}
+                loading="lazy"
+              />
+              <p className="my-6 text-lg font-semibold">{service.title}</p>
+            </motion.div>
+          ))}
+        </Carousel>
+      ) : (
+        <motion.div variants={gridVarients} initial="hidden" animate="show">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 my-16">
+            {services.map((service, idx) => (
+              <motion.div
+                key={idx}
+                className="flex flex-col items-center border-solid border-inherit shadow-lg rounded-md bg-[#F8F4E1] p-1"
+                variants={gridSquare}
+              >
+                <img
+                  className="object-cover h-[300px]"
+                  src={service.url}
+                  alt={service.title}
+                  loading="lazy"
+                />
+                <p className="my-6 text-lg font-semibold">{service.title}</p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+      )}
     </section>
   );
 }

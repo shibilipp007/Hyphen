@@ -10,11 +10,11 @@ export default function Root({ children }) {
 
   return (
     <div className="bg-[#FBF8EF]">
-      <header className="h-16 shadow-md z-50 ">
+      <header className="h-20 shadow-md z-50 ">
         <div className="max-w-[1200px] mx-auto px-4 flex items-center justify-between h-full">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <img src="/kl2.png" alt="Logo" className="h-12 w-auto" />
+            <img src="/ChatGPTI.png" alt="Logo" className="h-16 w-auto" />
           </div>
 
           {/* Navigation Links */}
@@ -119,10 +119,13 @@ export default function Root({ children }) {
       <footer>
         <div className="w-full lg:w-[1200px] mx-auto grid  md:grid-cols-2 justify-center items-center my-9 px-10 py-5 border-t-2 border-gray-200">
           <div className="flex flex-col items-center justify-center  lg:ml-5">
-            <img className="w-[200px] " src="/kl2.png" alt="" />
+            <img className="w-[200px] " src="/ChatGPTI.png" alt="" />
             <div className="flex flex-row mt-2 ">
-              <img src="/map.png " alt="" />
-              <span>Kurumathur,Taliparamba,Kannur,Kerala </span>
+              {/* <img src="/map.png " alt="" className="w-8 h-8" /> */}
+              <span className="text-center">
+                opposite Juma masjid pokkund <br />
+                Kurumathur,Taliparamba,Kannur,Kerala
+              </span>
             </div>
             <h6 className="lg:ml-6">Follow Us On</h6>
             <div className=" flex flex-row mt-2 lg:ml-6  gap-2">
@@ -130,10 +133,18 @@ export default function Root({ children }) {
                 href="https://www.instagram.com/hyphen_builders"
                 target="_blank"
               >
-                <img src="/instagram-logo-24.png" alt="" />
+                <img
+                  src="/instagram.png"
+                  alt="instagram"
+                  className="w-10 h-10"
+                />
               </a>
               <a href="https://www.facebook.com/hyphenbuilders" target="_blank">
-                <img src="/facebook.png" alt="" />
+                <img
+                  src="/communication.png"
+                  alt="facebook"
+                  className="w-9 h-9"
+                />
               </a>
               {/* <img src="/twitter.png" alt="" /> */}
             </div>
@@ -148,6 +159,9 @@ export default function Root({ children }) {
               Commercial construction
             </p>
           </div>
+        </div>
+        <div className="flex items-center justify-center text-sm text-black pb-5">
+          Copyright &copy; . Hyphen . All rights reserved
         </div>
       </footer>
     </div>

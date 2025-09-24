@@ -81,6 +81,10 @@ export default function Contactfrom() {
                   value: 10,
                   message: "phone number is at least 10 number required",
                 },
+                maxLength: {
+                  value: 10,
+                  message: "only 10 number is required",
+                },
               })}
             />
             {errors.phone && (
@@ -93,7 +97,7 @@ export default function Contactfrom() {
               className="mt-5 h-10 w-full text-white bg-yellow-600 rounded"
               type="submit"
             >
-              Send
+              Submit
             </button>
           </div>
         </form>

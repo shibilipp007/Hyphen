@@ -15,11 +15,15 @@ export default function About() {
             DREAM HOME
           </h3>
           <h6 className="text-sm mt-6 sm:text-base font-semibold">
-            From concept to creation, we bring your vision to life with expert
-            design, quality craftsmanship, and personalized service every step
-            of the way. Let us turn your dream into a place you can call home.
+            We believe that building is more than just bricks and concrete—it’s
+            about creating a lifestyle, a legacy, and a place where memories are
+            made. With personalized service at every stage, from planning and
+            design to execution and finishing touches, we ensure your journey
+            with us is seamless and stress-free. Whether it’s your dream home, a
+            commercial property, or a renovation project, we bring passion,
+            expertise, and integrity to every step of the process.
           </h6>
-          <div className="grid sm:grid-cols-3 mt-24 sm:mt-20  gap-6">
+          {/* <div className="grid sm:grid-cols-3 mt-24 sm:mt-20  gap-6">
             <div className="text-left">
               <h6 className="text-3xl font-bold">750+</h6>
               <p className="font-semibold">Houses completed</p>
@@ -32,7 +36,7 @@ export default function About() {
               <h6 className="text-3xl font-bold">250+</h6>
               <p className="font-semibold">Skilled Worker</p>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

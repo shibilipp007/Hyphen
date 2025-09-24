@@ -6,7 +6,7 @@ import Contact from "./contact";
 
 export default function Home() {
   return (
-    <div className="lg:w-[1200px] mx-auto px-4 mt-4 bg-[#FBF8EF]">
+    <div className="lg:w-[1200px] mx-auto px-4 mt-4 bg-[#fbf8ef]">
       <div className="relative bg-gray-50 flex flex-col lg:flex-row">
         {/* Image */}
         <div>
