@@ -14,7 +14,9 @@ export default function Root({ children }) {
         <div className="max-w-[1200px] mx-auto px-4 flex items-center justify-between h-full">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <img src="/ChatGPTI.png" alt="Logo" className="h-16 w-auto" />
+            <a href="#">
+              <img src="/ChatGPTI.png" alt="Logo" className="h-16 w-auto" />
+            </a>
           </div>
 
           {/* Navigation Links */}

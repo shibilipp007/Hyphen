@@ -90,7 +90,7 @@ export default function Service() {
             {services.map((service, idx) => (
               <motion.div
                 key={idx}
-                className="flex flex-col items-center border-solid border-inherit shadow-lg rounded-md bg-[#F8F4E1] p-1"
+                className="flex flex-col items-center border-solid border-inherit shadow-lg rounded-md bg-[#F8F4E1] p-1 hover:scale-105 transition-transform"
                 variants={gridSquare}
               >
                 <img

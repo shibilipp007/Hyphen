@@ -39,7 +39,7 @@ export default function Desing() {
           <br /> and Unmatched Personalized Service
         </p>
       </div>
-      <div className="grid grid-cols grid-cols-2 lg:grid-cols-4 items-center justify-center gap-3 mt-10 ">
+      <div className="grid grid-cols grid-cols-2 lg:grid-cols-4 items-stretch justify-center gap-3 mt-10 ">
         {designs.map(({ Icon, heading, description }, i) => (
           <Card icon={Icon} heading={heading} text={description} key={i} />
         ))}

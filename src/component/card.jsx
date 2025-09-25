@@ -1,7 +1,7 @@
 const Card = ({ icon, heading, text, classname }) => {
   return (
     <div
-      className={`bg-[#F8F4E1] shadow-md rounded-xl p-6 w-full max-w-[300px] ${classname}`}
+      className={`bg-[#F8F4E1] shadow-md rounded-xl p-6 w-full max-w-[300px] hover:scale-105 transition-transform duration-200 ${classname}`}
     >
       {icon && <div className="mb-2 rounded-lg">{icon}</div>}
       {heading && (

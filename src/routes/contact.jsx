@@ -26,7 +26,7 @@ export default function Contact() {
       </div>
       <div className="grid md:grid-cols-2 mt-11 gap-2">
         <button
-          className="text-center border shadow-sm rounded-md p-4 bg-[#F8F4E1] "
+          className="text-center border shadow-sm rounded-md p-4 bg-[#F8F4E1] hover:bg-[#f2edd0]"
           onClick={handlePhone}
         >
           <i className="bx bxl-whatsapp text-6xl p-4 "></i>
@@ -36,7 +36,7 @@ export default function Contact() {
           </div>
         </button>
         <button
-          className="text-center p-4 border shadow-sm rounded-md bg-[#F8F4E1]"
+          className="text-center p-4 border shadow-sm rounded-md bg-[#F8F4E1] hover:bg-[#f2edd0]"
           onClick={handleEmailClick}
         >
           <i className="bx bx-envelope text-6xl p-4"></i>
